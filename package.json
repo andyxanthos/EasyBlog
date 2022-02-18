@@ -4,7 +4,7 @@
   "description": "The easiest markdown blog generator.",
   "main": "dist/serve.js",
   "scripts": {
-    "cli":"node EasyBlog/cli.js",
+    "cli": "node EasyBlog/cli.js",
     "serveLocal": "nodemon EasyBlog/serve.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,10 +12,10 @@
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.13",
-    "@types/node": "^17.0.18"
+    "@types/node": "^17.0.18",
+    "@types/showdown": "^1.9.4"
   },
   "dependencies": {
-    "@types/showdown": "^1.9.4",
     "express": "^4.17.3",
     "hbs": "^4.2.0",
     "showdown": "^2.0.0"
