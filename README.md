@@ -39,7 +39,7 @@ If you're interested in learning more, you can get started by following the guid
 
 1. Let's turn that Markdown into HTML by running `npm run cli convert <post-name>`.
 
-     - *Note*: Again, please do not include a file extension (ex. 'md') when running this command. This is true of all EasyBlog commands.
+     - Again, please do not include a file extension (ex. 'md') when running this command. This is true of all EasyBlog commands.
 2. The output HTML will be written into a file named `<post-name>.hbs` in the `/views` directory. Unless you notice an inconsistency between your Markdown and the generated HTML, you should never need to look at the output.
 3. Now you're ready to look at your blog in the browser. To start a local development server, run `npm run localServe`.
 4. Navigate to `http://localhost:3030/` in your browser. Hopefully you are greeted with a plain, but (sort of) elegant index page!
@@ -52,6 +52,16 @@ There are a few different ways to deploy your EasyBlog blog. When planning for d
 
 - [Heroku](https://www.heroku.com/) is a wise choice for beginners (or if configuring an EC2 instance to your liking doesn't sound like fun to you). You provide your code, make some minor configuration changes, and they do everything else. They'll even manage your TLS certs.
 - AWS EC2, Google Cloud Platform, and Azure are all good choices as well, though you'll be on your own in terms of configuration.
+
+A more complete guide to deployment (and some handy shell scripts) are in the works.
+
+-------
+
+## Persistence
+
+Optional persistence is in the works. Until then, I strongly recommend that you create manual backups.
+
+`ezb backup` will create a ZIP file of your blog's essential files for backup purposes. I recommend creating a cronjob to run this regularly.
 
 -------
 
