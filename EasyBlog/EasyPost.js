@@ -53,9 +53,13 @@ class EasyPost {
         };
         this.generateHTMLContent = (postHTML) => {
             return `
+        <div class="post-title">
+            <h2>{{ meta.title }}</h2>
+        </div>
         <div class="post-body">
             ${postHTML}
-        </div>`;
+        </div>
+        `;
         };
         this.createNewPostFiles = (fileName) => {
             console.log(`🙂 Attempting to create files: posts/${fileName}.md, meta/${fileName}.json.`);

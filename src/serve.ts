@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import hbs from 'hbs';
  
 import dirConfig from './dirConfig';
 import EasyBlog from './EasyBlog';
@@ -7,8 +8,13 @@ import EasyBlog from './EasyBlog';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.static('static'));
+
 app.set('view engine', 'hbs');
 app.set('views', dirConfig.viewsDir);
+hbs.registerHelper('readableTime', (timestamp) => {
+    return new Date(timestamp).toLocaleDateString();
+});
 
 const blog = new EasyBlog();
 app.use(blog.setLocals);

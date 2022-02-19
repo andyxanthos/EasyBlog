@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    width: 40%;
+    margin: 0 auto;
+}
+
+header {
+    border-bottom: 1px solid black;
+    margin-bottom: 2em;
+}
+
+.header-title {
+    text-decoration: none;
+    color: rgb(0, 0, 238);
+}
+
+/* */
+.post {
+    /* margin-top: 2em; */
+}
+
+.index-post-title a {
+    text-decoration: none;
+    color:rgb(0, 0, 238);
+    font-weight: 400;
+}
+.index-post-title a:hover {
+    font-style: italic;
+}

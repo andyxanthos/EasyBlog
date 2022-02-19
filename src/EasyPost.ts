@@ -54,9 +54,13 @@ export default class EasyPost {
 
     generateHTMLContent = (postHTML: string) => {
         return `
+        <div class="post-title">
+            <h2>{{ meta.title }}</h2>
+        </div>
         <div class="post-body">
             ${postHTML}
-        </div>`;
+        </div>
+        `;
     }
 
     createNewPostFiles = (fileName: string): boolean => {
