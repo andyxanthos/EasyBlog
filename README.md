@@ -65,9 +65,20 @@ Optional persistence is in the works. Until then, I strongly recommend that you 
 
 -------
 
-## Interface
+## Philosophy
 
-### Philosophy
+### General
+A few key tenets of the EasyBlog philosophy are as follows:
+
+1. Blogging is about content, not the tech behind it. I want you to forget about EasyBlog while using it. Once you've done some of the initial setup, I think your interaction with the software that powers your blog should be minimal. In EasyBlog's case, that's running a single command to generate a view from your Markdown.
+
+2. Encourage extension without requiring it. Ultimately, this is just an Express application with a lot of abstraction. Anyone who's familiar with Express is welcome to download the source and tweak it to their liking, but, when making design decisions, I am more concerned with the people who are not interested in messing around. I want to provide a consistent and polished experience.
+
+3. Simplicity over everything. While I'm still trying to correct overcomplicated design decisions early on in the development process, my first priority is creating an exceptionally simple user interface - meaning CLI, config, etc. I am a relative novice when it comes to software design outside the context of pet projects.
+
+
+
+### Interface
 A brand new EasyBlog blog contains a very small amount of CSS. This is an intentional design decision made to save you the headache of navigating someone else's CSS. Additionally, I've aimed to keep the HTML structure as simple as possible to mitigate confusion.
 
 The `.hbs` files generated from your Markdown posts are available for you to edit as you see fit - you can find them in the `/views` directory. Additionally, the `/static` folder houses `css` and `js` subdirectories which contain some bare-bones files. You are encouraged to add your CSS and JavaScript to these directories, but keep in mind that you'll need to update `<head>` in `views/layout.hbs`.
@@ -76,3 +87,10 @@ The `.hbs` files generated from your Markdown posts are available for you to edi
 
 That said, front-end configurability is not a core goal for this project. In fact, I'd say avoiding front-end configuration *is* a core goal and a theming system seems like a solid step in that direction.
 
+------
+
+## Contributing
+
+All contributions are welcome. 
+
+EasyBlog is licensed under GPLv3. Please avoid employing any part of this source code in closed-source software. All forks must be open-source, regardless of the extent of modification.
