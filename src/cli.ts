@@ -4,7 +4,6 @@ import dirConfig from "./dirConfig";
 const cli = new EasyCLI();
 
 const args = cli.parseArgs(process.argv);
-console.log(`Parsed arguments: cmd = ${args.command}, params = ${args.parameters} `);
 
 switch(args.command) {
     case null || 'help':
@@ -29,6 +28,11 @@ switch(args.command) {
             console.log('❌ ERROR: You must provide a filename for the new post.');
             break;
         }
+    ///////////////
+    default:
+        console.log(`Command ${args.command} not recognized.`);
+        cli.showHelp();
+        break;
 }
 
 

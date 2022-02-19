@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const EasyCLI_1 = __importDefault(require("./EasyCLI"));
 const cli = new EasyCLI_1.default();
 const args = cli.parseArgs(process.argv);
-console.log(`Parsed arguments: cmd = ${args.command}, params = ${args.parameters} `);
 switch (args.command) {
     case null || 'help':
         cli.showHelp();
@@ -32,4 +31,9 @@ switch (args.command) {
             console.log('❌ ERROR: You must provide a filename for the new post.');
             break;
         }
+    ///////////////
+    default:
+        console.log(`Command ${args.command} not recognized.`);
+        cli.showHelp();
+        break;
 }

@@ -14,11 +14,14 @@
     "@types/express": "^4.17.13",
     "@types/hbs": "^4.0.1",
     "@types/node": "^17.0.18",
+    "@types/node-fetch": "^2.6.1",
     "@types/showdown": "^1.9.4"
   },
   "dependencies": {
     "express": "^4.17.3",
+    "handlebars": "^4.7.7",
     "hbs": "^4.2.0",
+    "node-fetch": "^2.6.7",
     "showdown": "^2.0.0"
   }
 }

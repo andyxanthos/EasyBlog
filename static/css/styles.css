@@ -20,7 +20,8 @@ header {
 
 /* */
 .post {
-    /* margin-top: 2em; */
+    width: 100%;
+    margin-bottom: 2em;
 }
 
 .index-post-title a {

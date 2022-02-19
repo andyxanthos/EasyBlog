@@ -43,7 +43,7 @@ export default class EasyBlog {
 
     findPosts = () => {
         const files = fs.readdirSync(this.dirConfig.viewsDir);
-        const posts: {meta: {}, url: string}[] = [];
+        const posts: {meta: {title: string, createdAt: number}, url: string}[] = [];
         files.forEach(file => {
             const fileName = file.split('.')[0];
             if (!this.dirConfig.staticFiles.includes(file)) {
@@ -54,7 +54,7 @@ export default class EasyBlog {
                 });
             }
         });
-        return posts;
+        return posts.sort((a, b) => { return b.meta.createdAt - a.meta.createdAt });
     }
 
     getPostMeta = (fileName: string): {title: string, createdAt: number} => {

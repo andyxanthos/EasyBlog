@@ -1,12 +1,11 @@
 import express from 'express';
-import path from 'path';
 import hbs from 'hbs';
  
 import dirConfig from './dirConfig';
 import EasyBlog from './EasyBlog';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3030;
 
 app.use(express.static('static'));
 
@@ -34,6 +33,6 @@ app.get('/blog/:postId', (req, res) => {
     }
 });
 
-app.listen(3030, () => {
+app.listen(PORT, () => {
     console.log('😀 App started. http://localhost:3030/');
 });

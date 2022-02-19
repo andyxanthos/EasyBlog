@@ -55,7 +55,7 @@ class EasyBlog {
                     });
                 }
             });
-            return posts;
+            return posts.sort((a, b) => { return b.meta.createdAt - a.meta.createdAt; });
         };
         this.getPostMeta = (fileName) => {
             fileName = `${fileName}.json`;
@@ -64,7 +64,7 @@ class EasyBlog {
             if (metaFileExists) {
                 const jsonData = fs_1.default.readFileSync(filePath);
                 const metaData = JSON.parse(jsonData.toString());
-                return { ...metaData };
+                return Object.assign({}, metaData);
             }
             else {
                 console.log(`❌ Unable to find meta file "${fileName} in ${this.dirConfig.metaDir}."`);
