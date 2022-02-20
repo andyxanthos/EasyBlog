@@ -1,7 +1,7 @@
 <div class="posts">
     {{#each posts}}
         <div class="post">
-            <h3 class="index-post-title"><a href={{ this.url }}>{{this.meta.title}}</a></h3>
+            <span class="index-post-date">{{ readableTime this.meta.createdAt }}</span><h3 class="index-post-title"><a href={{ this.url }}>{{this.meta.title}}</a></h3>
         </div>
     {{/each}}
 </div>

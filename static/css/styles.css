@@ -15,13 +15,26 @@ header {
 
 .header-title {
     text-decoration: none;
-    color: rgb(0, 0, 238);
+    color: #777777;
+    transition: color 0.5s;
+}
+.header-title:hover {
+    color: #AAAAAA;
 }
 
 /* */
 .post {
     width: 100%;
     margin-bottom: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.index-post-date {
+    font-style: italic;
+    color: #777777;
+    margin-right: 2em;
 }
 
 .index-post-title a {
@@ -30,5 +43,5 @@ header {
     font-weight: 400;
 }
 .index-post-title a:hover {
-    font-style: italic;
+    text-decoration: underline;
 }
