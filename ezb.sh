@@ -44,7 +44,7 @@ fi
 
 
 # New
-if [ "$1" == "new"]; then
+if [ "$1" == "new" ]; then
     if [ "$1" == "new" -a -z "$2" ]; then
         echo "ERROR: You must supply the name of your new blog to 'ezb new <blog-name>'."
         exit 1 
