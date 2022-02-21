@@ -57,11 +57,28 @@ A more complete guide to deployment (and some handy shell scripts) are in the wo
 
 -------
 
-## Persistence
+## Databases
 
-Optional persistence is in the works. Until then, I strongly recommend that you create manual backups.
+EasyBlog is designed to read from/write to the local filesystem. There is no "out of the box" compatibility with databases, nor is such a feature planned. This model makes it easier to build and deploy a blog as an entirely static website - just grab the views (as HTML) and any static files, push them to a server, and your blog is indistinguishable from any other completely static website. This process is slightly more complicated than it sounds, but there is a CLI tool in the works that will automate it.
 
-`ezb backup` will create a ZIP file of your blog's essential files for backup purposes. I recommend creating a cronjob to run this regularly.
+To be clear, I don't view the lack of a database as a handicap. I think the lack of a database has allowed EasyBlog to consistently output lightweight
+
+### Why?
+At its core, an EasyBlog blog is nothing more than an Express app. If you want to add a database for any reason, you are more than welcome to do so. Be aware, however, that the vast majority of the tools included with this project become unnecessary. The vast majority of EasyBlog's functionality concerns:
+
+- managing the conversion of Markdown files to Handlebars templates
+
+- configuring dynamic routes based on the existence of templates
+
+- workarounds to account for the lack of a database (ex. meta files)
+
+- convenience methods to make all of the above easier to reason about
+
+If the above points don't match your use case, you'd likely find that a regular Express application will better serve your needs.
+
+### What about backups?
+
+`ezb backup` will create a compressed .zip file containing the entirety of your blog's content (every directory/file except for `node_modules`) in your blog's root directory.
 
 -------
 
@@ -85,7 +102,7 @@ The `.hbs` files generated from your Markdown posts are available for you to edi
 
 "Themes" are a planned feature. As of right now, the thought is that a variety of CSS files will be held in a central repository. Switching between themes could be as simple as changing a line in `easyconfig.json` and running a CLI command.
 
-That said, front-end configurability is not a core goal for this project. In fact, I'd say avoiding front-end configuration *is* a core goal and a theming system seems like a solid step in that direction.
+That said, front-end configurability is not a core goal for this project. In fact, I'd say avoiding front-end configuration *is* a core goal and a theming system seems like a solid step in that direction, even if the two ideas seem contradictory.
 
 ------
 
