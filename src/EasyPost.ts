@@ -88,5 +88,4 @@ export default class EasyPost {
             return false;
         }
     }
-
 }

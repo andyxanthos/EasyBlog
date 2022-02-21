@@ -23,6 +23,12 @@ if [ "$1" == "backup" ]; then
     rm -r ./backup
 fi
 
+
+# New
+if [ "$1" == "new" -a -z "$2" ]; then
+    echo "ERROR: You must supply the name of your new blog to 'ezb new <blog-name>'."
+    exit 1 
+fi
 if [ "$1" == "new"  -a  ! -z "$2" ]; then
     cd "${PWD}"
     wget "$file_url" # get the .zip file from Github
