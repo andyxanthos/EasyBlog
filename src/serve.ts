@@ -34,5 +34,5 @@ app.get('/blog/:postId', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log('😀 App started. http://localhost:3030/');
+    console.log(`😀 App started. http://localhost:${PORT}/`);
 });

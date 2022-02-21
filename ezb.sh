@@ -2,11 +2,14 @@
 file_url="https://github.com/andyxanthos/EasyBlog/raw/master/EasyBlog-v1-starter.zip"
 file_name="EasyBlog-v1-starter.zip"
 
+cd "${PWD}"
+
+# Install `ezb` to a directory in PATH, if it isn't there already
 ezb_path=$(which ezb)
 if [ -z "${ezb_path}" ]; then cp ./ezb.sh /usr/local/bin/ezb; fi
 
+# Backup
 if [ "$1" == "backup" ]; then
-    cd "${PWD}"
     mkdir -p backups
     mkdir backup
     cp -r EasyBlog backup/
@@ -23,14 +26,29 @@ if [ "$1" == "backup" ]; then
     rm -r ./backup
 fi
 
+if [ "$1" == "deployment" ]; then
+    mkdir -p deployments
+    mkdir deployment
+    cp -r EasyBlog/ deployment/
+    cp -r meta/ deployment/
+    cp -r views/ deployment/
+    cp -r static/ deployment/
+    cp easyconfig.json deployment/
+    cp package-lock.json deployment/
+    cp package.json deployment/
+    timestamp=$(date +%s)
+    zip -r "deploy-$timestamp.zip" deployment
+    mv "deploy-$timestamp.zip" deployments/
+    rm -r deployment
+fi
+
 
 # New
-if [ "$1" == "new" -a -z "$2" ]; then
-    echo "ERROR: You must supply the name of your new blog to 'ezb new <blog-name>'."
-    exit 1 
-fi
-if [ "$1" == "new"  -a  ! -z "$2" ]; then
-    cd "${PWD}"
+if [ "$1" == "new"]; then
+    if [ "$1" == "new" -a -z "$2" ]; then
+        echo "ERROR: You must supply the name of your new blog to 'ezb new <blog-name>'."
+        exit 1 
+    fi
     wget "$file_url" # get the .zip file from Github
     echo "unzipping $file_name..."
     unzip "$file_name" # unzip it, getting a folder called 'starter'

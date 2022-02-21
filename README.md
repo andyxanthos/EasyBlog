@@ -50,10 +50,7 @@ If you're interested in learning more, you can get started by following the guid
 
 There are a few different ways to deploy your EasyBlog blog. When planning for deployment, something to keep in mind is that your blog is functionally indistinguishable from a regular Express app. The fact that you don't need a traditional database should only make deployment easier (and cheaper!).
 
-- [Heroku](https://www.heroku.com/) is a wise choice for beginners (or if configuring an EC2 instance to your liking doesn't sound like fun to you). You provide your code, make some minor configuration changes, and they do everything else. They'll even manage your TLS certs.
-- AWS EC2, Google Cloud Platform, and Azure are all good choices as well, though you'll be on your own in terms of configuration.
-
-A more complete guide to deployment (and some handy shell scripts) are in the works.
+Deployment options are explored in depth [here](https://github.com/andyxanthos/EasyBlog/wiki/Deploying-Your-Blog).
 
 -------
 
