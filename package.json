@@ -6,6 +6,7 @@
   "scripts": {
     "cli": "node EasyBlog/cli.js",
     "serveLocal": "nodemon EasyBlog/serve.js",
+    "start": "node EasyBlog/serve.js",   
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
