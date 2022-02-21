@@ -12,11 +12,11 @@ if [ -z "${ezb_path}" ]; then cp ./ezb.sh /usr/local/bin/ezb; fi
 if [ "$1" == "backup" ]; then
     mkdir -p backups
     mkdir backup
-    cp -R EasyBlog backup/
-    cp -R meta backup/
-    cp -R posts backup/
-    cp -R static backup/
-    cp -R views backup/
+    cp -R EasyBlog backup/EasyBlog
+    cp -R meta backup/meta
+    cp -R posts backup/posts
+    cp -R static backup/static
+    cp -R views backup/views
     cp easyconfig.json backup/
     cp package-lock.json backup/
     cp package.json backup/
@@ -29,10 +29,10 @@ fi
 if [ "$1" == "deployment" ]; then
     mkdir -p deployments
     mkdir deployment
-    cp -R EasyBlog/ deployment/
-    cp -R meta/ deployment/
-    cp -R views/ deployment/
-    cp -R static/ deployment/
+    cp -R EasyBlog deployment
+    cp -R meta deployment
+    cp -R views deployment
+    cp -R static deployment
     cp easyconfig.json deployment/
     cp package-lock.json deployment/
     cp package.json deployment/
