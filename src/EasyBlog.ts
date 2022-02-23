@@ -2,6 +2,7 @@ import fs, { readdirSync } from 'fs';
 import dirConfig, { DirConfigMap } from "./dirConfig";
 import { Response, Request, NextFunction } from 'express';
 import path from 'path';
+import { deepStrictEqual } from 'assert';
 
 
 export default class EasyBlog {
@@ -30,6 +31,27 @@ export default class EasyBlog {
         res.locals.blogTitle = this.config.blogTitle;
         res.locals.blogSubtitle = this.config.blogSubtitle;
         res.locals.userNames = this.config.userNames;
+        next();
+    }
+
+    log = (req: Request, res: Response, next: NextFunction) => {
+        if (!fs.existsSync(dirConfig.logDir)) {
+            fs.mkdirSync(dirConfig.logDir);
+        }
+
+        if (req.path == '/favicon.ico') next();
+
+        const now = new Date(Date.now());
+        const time = now.toLocaleTimeString();
+        const date = now.toLocaleDateString();
+        const timestamp = `${date} at ${time}`;
+
+        const logString = `${timestamp}: (${req.ip}) ${req.method} ${req.path} -> ${res.statusCode}`;
+        console.log(logString);
+
+        const logFilePath = path.join(dirConfig.logDir, '/server.log');
+        fs.appendFileSync(logFilePath, `${logString}\n`);
+
         next();
     }
 

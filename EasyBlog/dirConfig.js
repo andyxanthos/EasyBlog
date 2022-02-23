@@ -9,6 +9,7 @@ const dirConfig = {
     viewsDir: path_1.default.join(__dirname, '../views'),
     postsDir: path_1.default.join(__dirname, '../posts'),
     metaDir: path_1.default.join(__dirname, '../meta'),
+    logDir: path_1.default.join(__dirname, '../logs'),
     staticFiles: ['index.hbs', 'layout.hbs']
 };
 exports.default = dirConfig;

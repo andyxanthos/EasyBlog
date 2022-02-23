@@ -34,6 +34,22 @@ class EasyBlog {
             res.locals.userNames = this.config.userNames;
             next();
         };
+        this.log = (req, res, next) => {
+            if (!fs_1.default.existsSync(dirConfig_1.default.logDir)) {
+                fs_1.default.mkdirSync(dirConfig_1.default.logDir);
+            }
+            if (req.path == '/favicon.ico')
+                next();
+            const now = new Date(Date.now());
+            const time = now.toLocaleTimeString();
+            const date = now.toLocaleDateString();
+            const timestamp = `${date} at ${time}`;
+            const logString = `${timestamp}: (${req.ip}) ${req.method} ${req.path} -> ${res.statusCode}`;
+            console.log(logString);
+            const logFilePath = path_1.default.join(dirConfig_1.default.logDir, '/server.log');
+            fs_1.default.appendFileSync(logFilePath, `${logString}\n`);
+            next();
+        };
         // Input: post-id (url param) | output: view name (e.g. blog-post.ejs) or NULL
         this.findPost = (viewName) => {
             viewName = `${viewName}.hbs`;

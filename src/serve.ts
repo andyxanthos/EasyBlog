@@ -17,6 +17,7 @@ hbs.registerHelper('readableTime', (timestamp) => {
 
 const blog = new EasyBlog();
 app.use(blog.setLocals);
+app.use(blog.log);
 
 app.get('/', (req, res) => {
     res.render('index', {
