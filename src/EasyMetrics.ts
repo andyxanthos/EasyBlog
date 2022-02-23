@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-type counter = {
+type Counter = {
     [path: string]: number
 };
 
@@ -26,9 +26,9 @@ export default class EasyMetrics {
 
         let totalRequests = 0;
 
-        const requestsByPath: counter = {};
-        const requestsByIP: counter = {};
-        const statuses: counter = {};
+        const requestsByPath: Counter = {};
+        const requestsByIP: Counter = {};
+        const statuses: Counter = {};
 
         const allReqs: ReqInfo[] = [];
         const timestamps: string[] = [];
@@ -65,7 +65,7 @@ export default class EasyMetrics {
         }
     }
 
-    updateCount = (reqs: counter, field: string) => {
+    updateCount = (reqs: Counter, field: string) => {
         if (reqs[field]) {
             return reqs[field] += 1;
         } else {
@@ -76,10 +76,10 @@ export default class EasyMetrics {
     createFile = (metrics: Metrics) => {
         const metricsPath = path.join(__dirname, '../metrics');
         if (!fs.existsSync(metricsPath)) fs.mkdirSync(metricsPath);
+
         const metricsFile = path.join(__dirname, '../metrics/metrics.json');
-        if (fs.existsSync(metricsFile)) {
-            fs.rmSync(metricsFile);
-        }
+        if (fs.existsSync(metricsFile)) fs.rmSync(metricsFile);
+
         const JSONMetrics = JSON.stringify(metrics);
         fs.appendFileSync(metricsFile, JSONMetrics);
     }

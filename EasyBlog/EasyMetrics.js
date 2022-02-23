@@ -59,9 +59,8 @@ class EasyMetrics {
             if (!fs_1.default.existsSync(metricsPath))
                 fs_1.default.mkdirSync(metricsPath);
             const metricsFile = path_1.default.join(__dirname, '../metrics/metrics.json');
-            if (fs_1.default.existsSync(metricsFile)) {
+            if (fs_1.default.existsSync(metricsFile))
                 fs_1.default.rmSync(metricsFile);
-            }
             const JSONMetrics = JSON.stringify(metrics);
             fs_1.default.appendFileSync(metricsFile, JSONMetrics);
         };

@@ -42,7 +42,6 @@ if [ "$1" == "deployment" ]; then
     rm -r deployment
 fi
 
-
 # New
 if [ "$1" == "new" ]; then
     if [ "$1" == "new" -a -z "$2" ]; then
