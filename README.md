@@ -77,6 +77,8 @@ If the above points don't match your use case, you'd likely find that a regular 
 
 `ezb backup` will create a compressed .zip file containing the entirety of your blog's content (every directory/file except for `node_modules`) in your blog's root directory.
 
+Using GitHub as a backup is another option.
+
 -------
 
 ## Philosophy
