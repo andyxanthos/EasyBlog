@@ -1,5 +1,7 @@
 import EasyCLI from "./EasyCLI"
 import dirConfig from "./dirConfig";
+import { fstat } from "fs";
+import path from "path";
 
 const cli = new EasyCLI();
 
@@ -28,6 +30,11 @@ switch(args.command) {
             console.log('❌ ERROR: You must provide a filename for the new post.');
             break;
         }
+    ///////////////
+    case 'metrics':
+        const logPath = path.join(dirConfig.logDir, '/server.log');
+        cli.metrics(logPath);
+        break;
     ///////////////
     default:
         console.log(`Command ${args.command} not recognized.`);

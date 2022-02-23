@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
 const dirConfig_1 = __importDefault(require("./dirConfig"));
 const EasyPost_1 = __importDefault(require("./EasyPost"));
+const EasyMetrics_1 = __importDefault(require("./EasyMetrics"));
 class EasyCLI {
     constructor() {
         this.parseArgs = (argv) => {
@@ -23,11 +24,6 @@ class EasyCLI {
             console.log('🙂 EasyBlog Help!');
         };
         this.handleConvert = (fileName) => {
-            // Check for file in config.postsDir
-            // Check to see if it already exists in config.viewsDir
-            // If both false, create a new file
-            // 1. convert MD to HTML
-            // 2. fs.writeFile() -- filename is same as MD file
             const post = new EasyPost_1.default();
             if (!fileName.split('').includes('.')) {
                 fileName = `${fileName}.md`;
@@ -53,6 +49,10 @@ class EasyCLI {
             else {
                 return post.createNewPostFiles(fileName);
             }
+        };
+        this.metrics = (logFile) => {
+            const metrics = new EasyMetrics_1.default();
+            metrics.generateMetrics(logFile);
         };
     }
 }

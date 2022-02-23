@@ -2,7 +2,7 @@ import fs, { readdirSync } from 'fs';
 import dirConfig, { DirConfigMap } from "./dirConfig";
 import { Response, Request, NextFunction } from 'express';
 import path from 'path';
-import { deepStrictEqual } from 'assert';
+import crypto from 'crypto';
 
 
 export default class EasyBlog {
@@ -15,7 +15,8 @@ export default class EasyBlog {
     config: {
         blogTitle: string,
         blogSubtitle: string,
-        userNames: { string: string }
+        userNames: { string: string },
+        metrics: boolean
     };
     dirConfig: DirConfigMap;
 
@@ -46,7 +47,7 @@ export default class EasyBlog {
         const date = now.toLocaleDateString();
         const timestamp = `${date} at ${time}`;
 
-        const logString = `${timestamp}: (${req.ip}) ${req.method} ${req.path} -> ${res.statusCode}`;
+        const logString = `${Date.now()} (${timestamp}): (${req.ip}) ${req.method} ${req.path} -> ${res.statusCode}`;
         console.log(logString);
 
         const logFilePath = path.join(dirConfig.logDir, '/server.log');
@@ -54,8 +55,8 @@ export default class EasyBlog {
 
         next();
     }
-
-    // Input: post-id (url param) | output: view name (e.g. blog-post.ejs) or NULL
+      
+    // Input: post-id (url param) | output: view name (e.g. blog-post.hbs) or NULL
     findPost = (viewName: string): string | null => {
         viewName = `${viewName}.hbs`;
         const files = readdirSync(this.dirConfig.viewsDir)

@@ -44,13 +44,13 @@ class EasyBlog {
             const time = now.toLocaleTimeString();
             const date = now.toLocaleDateString();
             const timestamp = `${date} at ${time}`;
-            const logString = `${timestamp}: (${req.ip}) ${req.method} ${req.path} -> ${res.statusCode}`;
+            const logString = `${Date.now()} (${timestamp}): (${req.ip}) ${req.method} ${req.path} -> ${res.statusCode}`;
             console.log(logString);
             const logFilePath = path_1.default.join(dirConfig_1.default.logDir, '/server.log');
             fs_1.default.appendFileSync(logFilePath, `${logString}\n`);
             next();
         };
-        // Input: post-id (url param) | output: view name (e.g. blog-post.ejs) or NULL
+        // Input: post-id (url param) | output: view name (e.g. blog-post.hbs) or NULL
         this.findPost = (viewName) => {
             viewName = `${viewName}.hbs`;
             const files = (0, fs_1.readdirSync)(this.dirConfig.viewsDir);

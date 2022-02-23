@@ -1,6 +1,7 @@
 import path from "path";
 import dirConfig from "./dirConfig";
 import EasyPost from "./EasyPost";
+import EasyMetrics from "./EasyMetrics";
 
 export default class EasyCLI {
 
@@ -21,11 +22,6 @@ export default class EasyCLI {
     }
 
     handleConvert = (fileName: string) => {
-        // Check for file in config.postsDir
-        // Check to see if it already exists in config.viewsDir
-        // If both false, create a new file
-        // 1. convert MD to HTML
-        // 2. fs.writeFile() -- filename is same as MD file
         const post = new EasyPost();
         if (!fileName.split('').includes('.')) {
             fileName = `${fileName}.md`;
@@ -50,5 +46,10 @@ export default class EasyCLI {
         } else {
             return post.createNewPostFiles(fileName);
         }
+    };
+
+    metrics = (logFile: string) => {
+        const metrics = new EasyMetrics();
+        metrics.generateMetrics(logFile);
     };
 }

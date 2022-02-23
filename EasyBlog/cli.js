@@ -4,6 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const EasyCLI_1 = __importDefault(require("./EasyCLI"));
+const dirConfig_1 = __importDefault(require("./dirConfig"));
+const path_1 = __importDefault(require("path"));
 const cli = new EasyCLI_1.default();
 const args = cli.parseArgs(process.argv);
 switch (args.command) {
@@ -31,6 +33,11 @@ switch (args.command) {
             console.log('❌ ERROR: You must provide a filename for the new post.');
             break;
         }
+    ///////////////
+    case 'metrics':
+        const logPath = path_1.default.join(dirConfig_1.default.logDir, '/server.log');
+        cli.metrics(logPath);
+        break;
     ///////////////
     default:
         console.log(`Command ${args.command} not recognized.`);
