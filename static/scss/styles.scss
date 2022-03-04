@@ -9,18 +9,27 @@
   }
   
   header {
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #AAAAAA;
     margin-bottom: 2em;
+    display: flex;
+    align-items: center;
   }
   
   .header-title {
     text-decoration: none;
     color: #777777;
-    transition: color 0.5s;
+    transition: color 0.25s;
+    &:hover {
+      color: #AAAAAA;
+    }
   }
-  .header-title:hover {
-    color: #AAAAAA;
+
+  .header-subtitle {
+    font-size: 1em;
+    margin-left: 2em;
+    font-style: italic;
   }
+  
   
   /* */
   .post {
@@ -33,7 +42,6 @@
   
   .index-post-date {
     font-style: italic;
-    color: #777777;
     margin-right: 2em;
   }
   
