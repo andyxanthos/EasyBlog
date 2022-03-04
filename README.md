@@ -4,7 +4,7 @@
 
 EasyBlog intends to be a low-maintenance, easy to understand blog generator. Once you've initialized a blog, you write posts using Markdown syntax, put them in the `posts` directory, run a few CLI commands to generate HTML files, and you've got a fully-functional blog.
 
-If you're interested in learning more, you can get started by following the guide below or downloading the [starter](https://github.com/andyxanthos/EasyBlog/raw/master/EasyBlog-v1-starter.zip).
+If you're interested in learning more, you can get started by following the guide below.
 
 **EasyBlog is a work in progress - expect breaking changes. Comprehensive documentation is in the works.**
 

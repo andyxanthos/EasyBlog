@@ -89,7 +89,7 @@ export default class EasyPost {
                 return true;
             }
         } else {
-            console.log(`EasyPost.deleteView ERROR: Could not find view at ${filePath}!`);
+            console.log(`❌ ERROR: Could not find view at ${filePath}!`);
             return false;
         }
     }

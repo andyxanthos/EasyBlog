@@ -1,11 +1,11 @@
 {
   "name": "easyblog",
-  "version": "1.0.0",
+  "version": "0.0.8",
   "description": "The easiest markdown blog generator.",
   "main": "dist/serve.js",
   "scripts": {
     "cli": "node EasyBlog/cli.js",
-    "serveLocal": "nodemon EasyBlog/serve.js",
+    "devserver": "nodemon EasyBlog/serve.js",
     "start": "node EasyBlog/serve.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

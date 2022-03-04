@@ -22,6 +22,9 @@ class EasyCLI {
         };
         this.showHelp = () => {
             console.log('🙂 EasyBlog Help!');
+            console.log('Unfortunately, official documentation is still in the works.');
+            console.log('In the mean time, you can get help on GitHub:');
+            console.log('https://github.com/andyxanthos/EasyBlog');
         };
         this.handleConvert = (fileName) => {
             const post = new EasyPost_1.default();

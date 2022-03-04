@@ -2,7 +2,6 @@ import path from "path";
 import dirConfig from "./dirConfig";
 import EasyPost from "./EasyPost";
 import EasyMetrics from "./EasyMetrics";
-import { fstat } from "fs";
 
 export default class EasyCLI {
 
@@ -20,6 +19,9 @@ export default class EasyCLI {
 
     showHelp = () => {
         console.log('🙂 EasyBlog Help!');
+        console.log('Unfortunately, official documentation is still in the works.');
+        console.log('In the mean time, you can get help on GitHub:');
+        console.log('https://github.com/andyxanthos/EasyBlog');
     }
 
     handleConvert = (fileName: string) => {

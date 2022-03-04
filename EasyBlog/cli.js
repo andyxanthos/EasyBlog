@@ -35,7 +35,12 @@ switch (args.command) {
         }
     ///////////////
     case 'updatePost':
-        cli.updatePost(args.parameters[0]);
+        if (args.parameters.length > 0) {
+            cli.updatePost(args.parameters[0]);
+        }
+        else {
+            console.log('❌ ERROR: You must provide the name of the post to update.');
+        }
         break;
     ///////////////
     case 'metrics':
