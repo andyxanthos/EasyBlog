@@ -2,6 +2,7 @@ import path from "path";
 import dirConfig from "./dirConfig";
 import EasyPost from "./EasyPost";
 import EasyMetrics from "./EasyMetrics";
+import { fstat } from "fs";
 
 export default class EasyCLI {
 
@@ -47,6 +48,25 @@ export default class EasyCLI {
             return post.createNewPostFiles(fileName);
         }
     };
+
+    updatePost = (fileName: string) => {
+        const post = new EasyPost();
+        if (!post.checkForMarkdown(`${fileName}.md`)) {
+            return console.log(`❌ Could not find ${fileName}.md!`);
+        } else if (!post.checkExistingViews(fileName)) {
+            console.log(`❌ Could not locate the view ${fileName}.hbs!`);
+            return console.log('Did you mean `convert`?');
+        } else {
+            const currentViewPath = path.join(dirConfig.viewsDir, fileName);
+            // Remove the existing view
+            const postDeleted = post.deleteView(`${currentViewPath}.hbs`);
+            if (postDeleted) {
+                return this.handleConvert(fileName);
+            } else {
+                return console.log('EasyCLI.updatePost ERROR: Could not update post.');
+            }
+        }
+    }
 
     metrics = (logFile: string) => {
         const metrics = new EasyMetrics();

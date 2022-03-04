@@ -34,6 +34,10 @@ switch (args.command) {
             break;
         }
     ///////////////
+    case 'updatePost':
+        cli.updatePost(args.parameters[0]);
+        break;
+    ///////////////
     case 'metrics':
         const logPath = path_1.default.join(dirConfig_1.default.logDir, '/server.log');
         cli.metrics(logPath);

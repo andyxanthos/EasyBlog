@@ -81,4 +81,16 @@ export default class EasyPost {
             return false;
         }
     }
+
+    deleteView = (filePath: string) => {
+        if (fs.existsSync(filePath)) {
+            fs.rmSync(filePath);
+            if (!fs.existsSync(filePath)) {
+                return true;
+            }
+        } else {
+            console.log(`EasyPost.deleteView ERROR: Could not find view at ${filePath}!`);
+            return false;
+        }
+    }
 }

@@ -50,6 +50,27 @@ class EasyCLI {
                 return post.createNewPostFiles(fileName);
             }
         };
+        this.updatePost = (fileName) => {
+            const post = new EasyPost_1.default();
+            if (!post.checkForMarkdown(`${fileName}.md`)) {
+                return console.log(`❌ Could not find ${fileName}.md!`);
+            }
+            else if (!post.checkExistingViews(fileName)) {
+                console.log(`❌ Could not locate the view ${fileName}.hbs!`);
+                return console.log('Did you mean `convert`?');
+            }
+            else {
+                const currentViewPath = path_1.default.join(dirConfig_1.default.viewsDir, fileName);
+                // Remove the existing view
+                const postDeleted = post.deleteView(`${currentViewPath}.hbs`);
+                if (postDeleted) {
+                    return this.handleConvert(fileName);
+                }
+                else {
+                    return console.log('EasyCLI.updatePost ERROR: Could not update post.');
+                }
+            }
+        };
         this.metrics = (logFile) => {
             const metrics = new EasyMetrics_1.default();
             metrics.generateMetrics(logFile);
