@@ -1,47 +1,49 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: sans-serif;
-    width: 40%;
-    margin: 0 auto;
+  font-family: sans-serif;
+  width: 40%;
+  margin: 0 auto;
 }
 
 header {
-    border-bottom: 1px solid black;
-    margin-bottom: 2em;
+  border-bottom: 1px solid black;
+  margin-bottom: 2em;
 }
 
 .header-title {
-    text-decoration: none;
-    color: #777777;
-    transition: color 0.5s;
+  text-decoration: none;
+  color: #777777;
+  transition: color 0.5s;
 }
+
 .header-title:hover {
-    color: #AAAAAA;
+  color: #AAAAAA;
 }
 
 /* */
 .post {
-    width: 100%;
-    margin-bottom: 2em;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .index-post-date {
-    font-style: italic;
-    color: #777777;
-    margin-right: 2em;
+  font-style: italic;
+  color: #777777;
+  margin-right: 2em;
 }
 
 .index-post-title a {
-    text-decoration: none;
-    color:rgb(0, 0, 238);
-    font-weight: 400;
+  text-decoration: none;
+  color: #0000ee;
+  font-weight: 400;
 }
+
 .index-post-title a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }

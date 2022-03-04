@@ -1,8 +1,10 @@
 import express from 'express';
 import hbs from 'hbs';
+import path from 'path';
  
 import dirConfig from './dirConfig';
 import EasyBlog from './EasyBlog';
+import StaticManager from './StaticManager';
 
 const app = express();
 const PORT = process.env.PORT || 3030;
@@ -18,6 +20,10 @@ hbs.registerHelper('readableTime', (timestamp) => {
 const blog = new EasyBlog();
 app.use(blog.setLocals);
 app.use(blog.log);
+
+const cssDir = path.join(__dirname, '../static/css/');
+const scssDir = path.join(__dirname, '../static/scss/');
+new StaticManager(cssDir, scssDir).SCSStoCSS();
 
 app.get('/', (req, res) => {
     res.render('index', {
