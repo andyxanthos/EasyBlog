@@ -26,20 +26,11 @@ if [ "$1" == "backup" ]; then
     rm -r ./backup
 fi
 
+# Deployments are a WIP
 if [ "$1" == "deployment" ]; then
-    mkdir -p deployments
-    mkdir deployment
-    cp -R EasyBlog deployment
-    cp -R meta deployment
-    cp -R views deployment
-    cp -R static deployment
-    cp easyconfig.json deployment/
-    cp package-lock.json deployment/
-    cp package.json deployment/
-    timestamp=$(date +%s)
-    zip -r "deploy-$timestamp.zip" deployment
-    mv "deploy-$timestamp.zip" deployments/
-    rm -r deployment
+    echo "Deployments are still a work in progress. You can still deploy your blog, though."
+    echo "Read the deployment guide on GitHub to learn how:"
+    echo "https://github.com/andyxanthos/EasyBlog/wiki/Deploying-Your-Blog"
 fi
 
 # New
